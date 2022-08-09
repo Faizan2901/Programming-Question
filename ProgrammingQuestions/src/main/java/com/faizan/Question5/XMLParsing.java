@@ -1,6 +1,7 @@
 package com.faizan.Question5;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,17 +21,25 @@ public class XMLParsing {
 		int max = 0;
 		String syr = "";
 
+		File files = new File("/home/faizansopariwala/Downloads/Problem_Input/5/");
+
+		File[] file = files.listFiles();
+		
 		DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
 
 		try {
 
 			DocumentBuilder builder = fac.newDocumentBuilder();
-			Document doc = (Document) builder.parse(new File(
-					"/home/faizansopariwala/Downloads/Problem_Input/5/Thomas S Bellows Jr_399166_9.17.19_Las Cruces.txt.xml"));
+			for(int k=0;k<file.length;k++)
+			{
+				
+			System.out.println("\nResouce No:- "+(k+1)+"\n");
+			
+			Document doc = (Document) builder.parse(file[k]);
 			NodeList codevalue = doc.getElementsByTagName("Icd10CmCode");
 
 			for (int i = 0; i < codevalue.getLength(); i++) {
-				int count = 0;
+
 				Node c = codevalue.item(i);
 				if (c.getNodeType() == Node.ELEMENT_NODE) {
 					Element person = (Element) c;
@@ -44,7 +53,7 @@ public class XMLParsing {
 						if (nc.getNodeType() == Node.ELEMENT_NODE) {
 							Element Name = (Element) nc;
 							// System.out.print(" Rank :- "+Name.getAttribute("rank"));
-							count++;
+
 							/*
 							 * NodeList rn=(NodeList) Name.getAttributes();
 							 * 
@@ -57,7 +66,7 @@ public class XMLParsing {
 								}
 
 							}
-							
+
 							/*
 							 * if(count>1) {
 							 * 
@@ -75,14 +84,13 @@ public class XMLParsing {
 						}
 
 					}
-					System.out.println("Maximum Rank:- " + max + " and it's Value:- " + syr);
-						max=0;
-						syr="";
-						System.out.println("<Icd10CmCode>");
-					// System.out.println();
-					// System.out.println(count);
+					System.out.println("Rank:- " + max + " and it's Value:- " + syr);
+					max = 0;
+					syr = "";
+					
 
 				}
+			}
 				// System.out.println();
 			}
 		} catch (ParserConfigurationException e) {
