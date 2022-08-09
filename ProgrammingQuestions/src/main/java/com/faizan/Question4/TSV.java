@@ -22,7 +22,7 @@ public class TSV {
 		String[] amount=null;
 		for(int i=0;i<allRows.size();i++)
 		{
-			amount=allRows.get(i).toString().split("[\\t|,]");
+			
 		}
 		
 		for(int i=0;i<amount.length;i++)
