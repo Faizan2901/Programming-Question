@@ -16,7 +16,7 @@ public class TSVorCSVFIle {
 		try {
 			for (int k = 0; k < file.length; k++) {
 				int index = 0;
-				int iteration = 0;
+				boolean coun = true;
 				double sum = 0;
 				br = new BufferedReader(new FileReader(file[k]));
 
@@ -36,8 +36,8 @@ public class TSVorCSVFIle {
 						}
 					}
 
-					if (iteration == 0) {
-						iteration++;
+					if (coun) {
+						coun=false;
 						continue;
 					}
 

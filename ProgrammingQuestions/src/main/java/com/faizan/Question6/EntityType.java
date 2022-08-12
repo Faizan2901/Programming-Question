@@ -22,8 +22,8 @@ public class EntityType {
 
 		DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
 		
-		int tcount = 0;
-		int count = 0;
+		//int tcount = 0;
+		//int count = 0;
 		try {
 
 			File files = new File("/home/faizansopariwala/Downloads/Problem_Input/6/");

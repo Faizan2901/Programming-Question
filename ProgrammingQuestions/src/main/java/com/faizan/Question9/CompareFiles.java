@@ -62,11 +62,14 @@ public class CompareFiles {
 		Set<String> str1 = new HashSet<>();
 		File dir1 = new File("/home/faizansopariwala/Downloads/Problem_Input/9/CM1");
 		File dir2 = new File("/home/faizansopariwala/Downloads/Problem_Input/9/CM2");
-
+		int count=0;
 		File[] files1 = dir1.listFiles();
 		File[] files2 = dir2.listFiles();
+		
+		
 		for (int i = 0; i < files1.length; i++) {
 			for (int j = 0; j < files2.length; j++) {
+				
 				if (files1[i].getName().equals(files2[j].getName())) {
 
 					str = codeValue(files1[i]);
@@ -74,20 +77,29 @@ public class CompareFiles {
 
 					System.out.println(files1[i].getName());
 					System.out.println("Common");
-					comparisonValue(str, str1);
+					commonValue(str, str1);
 					System.out.println("Extra");
 					extraValue(str, str1);
 					System.out.println("Missing");
 					missingValue(str, str1);
-					System.out.println();
+					System.out.println("\n==========================================================\n");
+					count++;
+					
 				}
+				
 
 			}
 		}
+		
+		if(files1.length==files2.length)
+		{
+		System.out.println("No. of Files are not found:- "+(files1.length-count));
+		}
+		
 
 	}
 
-	static public void comparisonValue(Set<String> s1, Set<String> s2) {
+	static public void commonValue(Set<String> s1, Set<String> s2) {
 
 		Set<String> match = new HashSet<>(s1);
 		match.retainAll(s2);

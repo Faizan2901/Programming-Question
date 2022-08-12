@@ -18,18 +18,21 @@ public class FileDeletedQuestion {
 			
 			while((str=br.readLine())!=null)
 			{
-				count++;
+				
 				if(Files.deleteIfExists(Paths.get("/home/faizansopariwala/Downloads/Problem_Input/1/InputFolder/1/"+str)))
 				{
 					System.out.println("Files Deleted");
+					count++;
 				}
 				else if(Files.deleteIfExists(Paths.get("/home/faizansopariwala/Downloads/Problem_Input/1/InputFolder/2/"+str)))
 				{
 					System.out.println("Files Deleted");
+					count++;
 				}
 				else if(Files.deleteIfExists(Paths.get("/home/faizansopariwala/Downloads/Problem_Input/1/InputFolder/"+str)))
 				{
 					System.out.println("Files Deleted");
+					count++;
 				}
 				else
 				{

@@ -17,8 +17,12 @@ public class JSONFileExtraction {
 
 		JSONParser jsonparser = new JSONParser();
 
+		
+		
 		for (int i = 0; i < file.length; i++) {
+			
 
+			int count=0;
 			try (FileReader file1 = new FileReader(file[i])) {
 
 				if (file[i] == null) {
@@ -34,8 +38,10 @@ public class JSONFileExtraction {
 
 					if ((double) (entities.get("Score")) < 0.9) {
 						System.out.println(entities.get("Text"));
+						count++;
 					}
 				}
+				System.out.println("\nTotal Entry of Score in "+file[i].getName()+" is :- "+count+"\n");
 
 			} catch (Exception e) {
 				System.out.println(e);

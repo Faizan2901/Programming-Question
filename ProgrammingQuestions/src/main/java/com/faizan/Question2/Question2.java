@@ -14,7 +14,7 @@ public class Question2 {
 		int count=0;
 		int fcount=0;
 		
-		String str="^[tT][h][e]\\b";
+		String str="^[tT]he\\b";
 		Pattern pat=Pattern.compile(str);
 		
 		for(int i=0;i<file.length;i++)
