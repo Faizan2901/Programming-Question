@@ -6,11 +6,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class FileDeletedQuestion {
+	
+	static int count=0;
 
 	public static void main(String[] args) {
 	
 		
-      int count=0;
 		
 		try(BufferedReader br=new BufferedReader(new FileReader("/home/faizansopariwala/Downloads/Problem_Input/1/DeleteFiles.txt")))
 		{
