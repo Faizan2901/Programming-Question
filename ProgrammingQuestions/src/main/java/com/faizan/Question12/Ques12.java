@@ -23,12 +23,12 @@ public class Ques12 {
             String line="";
             ArrayList<String[]> list=new ArrayList<String[]>();
             ArrayList<String> unique=new ArrayList<String>();
-            ArrayList<String> conflict=new ArrayList<String>();
+            ArrayList<String> conflict=new ArrayList<>();
             while ((line = br.readLine()) != null)
             {
                 String[] array = line.split("\t");
-                String[] temp= {array[0],  array[1].toLowerCase()+"\t"+array[2].toLowerCase()};
-                list.add(temp);
+                String[] text= {array[0],  array[1].toLowerCase()+"\t"+array[2].toLowerCase()};
+                list.add(text);
             }
             
            
@@ -53,7 +53,7 @@ public class Ques12 {
                     }
                 }
                 
-                if(flag==false)
+                if(!flag)
                 {
                     conflict.add(first+"\t"+value);
                 }

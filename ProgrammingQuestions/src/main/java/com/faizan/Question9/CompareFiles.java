@@ -15,6 +15,8 @@ public class CompareFiles {
 	public static Set<String> codeValue(File file) {
 		Set<String> str = new HashSet<>();
 
+		int max = 0;
+		String syr;
 		DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = fac.newDocumentBuilder();
@@ -37,12 +39,18 @@ public class CompareFiles {
 							Element Name = (Element) nc;
 
 							if (Name.getNodeName() == "code") {
-								str.add(Name.getAttribute("value"));
+								if (max < Integer.parseInt(Name.getAttribute("rank"))) {
+									max = Integer.parseInt(Name.getAttribute("rank"));
+									syr = Name.getAttribute("value");
+									str.add(syr);
+								}
 							}
 
 						}
 
 					}
+					max = 0;
+					
 
 				}
 			}

@@ -29,7 +29,7 @@ public class BMIRegex {
 	public static void main(String[] args) {
 
 		try {
-			String regex = "(BMI[a-z\\s]*|[b|B]o[ds]y mass index [a-z\\s]*|BMI\\s*\\(?[b|B]ody mass index\\)?|[b|B]ody [m|M]ass [i|I]ndex\\s*\\(?BMI\\)?)(\\s*:*\\s*|\\s?-\\s?|\\s*|\\s*-*>\\s*|\\s?=\\s?|\\W*)(\\d+\\s?\\w*\\s?\\d*\\.\\d*|\\d+\\.\\d+|\\d+\\s?-?\\s?\\d+\\.\\d+|\\d+)";
+			String regex = "(BMI[a-z\\s]*|[bB]o[ds]y mass index [a-z\\s]*|BMI\\s*\\(?[b|B]ody mass index\\)?|[b|B]ody [m|M]ass [i|I]ndex\\s*\\(?BMI\\)?)(\\s*:*\\s*|\\s?-\\s?|\\s*|\\s*-*>\\s*|\\s?=\\s?|\\W*)(\\d+\\s?\\w*\\s?\\d*\\.\\d*|\\d+\\.\\d+|\\d+\\s?-?\\s?\\d+\\.\\d+|\\d+)";
 			ArrayList<String> bmiList = new ArrayList<>();
 			BufferedReader br = new BufferedReader(
 					new FileReader("/home/faizansopariwala/Downloads/Problem_Input/11/TextDocument"));

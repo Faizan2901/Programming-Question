@@ -20,10 +20,7 @@ public class TSV {
 		
 		List<String[]> allRows = parser.parseAll(new FileReader("/home/faizansopariwala/Downloads/Problem_Input/4/1.tsv"));
 		String[] amount=null;
-		for(int i=0;i<allRows.size();i++)
-		{
-			
-		}
+		
 		
 		for(int i=0;i<amount.length;i++)
 		{

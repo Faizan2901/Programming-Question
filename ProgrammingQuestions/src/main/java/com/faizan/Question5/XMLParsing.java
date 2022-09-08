@@ -59,7 +59,7 @@ public class XMLParsing {
 							 * 
 							 * for(int k=0;k<rn.getLength();k++) { System.out.println(rn.item(k)); }
 							 */
-							if (Name.getNodeName() == "code") {
+							if ("code".equals(Name.getNodeName())) {
 								if (max < Integer.parseInt(Name.getAttribute("rank"))) {
 									max = Integer.parseInt(Name.getAttribute("rank"));
 									syr = Name.getAttribute("value");

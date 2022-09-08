@@ -14,7 +14,7 @@ public class TSVorCSVFIle {
 		BufferedReader br = null;
 		File[] file = files.listFiles();
 		try {
-			for (int k = 0; k < file.length; k++) {
+			for (int k = 0; k <file.length; k++) {
 				int index = 0;
 				boolean coun = true;
 				double sum = 0;
@@ -50,7 +50,7 @@ public class TSVorCSVFIle {
 					}
 
 				}
-				System.out.println("The Sum of Amount:- " + sum);
+				System.out.println("For Resource Number "+k+" Sum of Amount:- " + sum);
 			}
 			
 		} catch (Exception e) {
