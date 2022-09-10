@@ -1,8 +1,10 @@
 package com.faizan.Question8;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,17 +21,23 @@ class Tree1 {
 		this.codes = new HashSet<> ();
 		this.children = new HashMap<> ();
 	}
-//	
-	public void printTree(String tab) {
+	
+	public void printTree(String tab,PrintStream ps) throws FileNotFoundException {
+		String str=null;
 		if(!codes.isEmpty()) {
-			System.out.println(tab + name + "~" + codes);			
+			System.setOut(ps);
+			str=tab + name + "~" + codes;
+			str=str.replaceAll("\\[", "");
+			str=str.replaceAll("\\]", "");
+			System.out.println(str);			
 		}
 		else {
+			System.setOut(ps);
 			System.out.println(tab + name);
 		}
 		
 		for(Tree1 childChild: children.values()) {
-			childChild.printTree(tab + "\t");
+			childChild.printTree(tab + "\t",ps);
 		}
 	}
 	public void addChild(Tree1 child) {
@@ -40,8 +48,6 @@ class Tree1 {
 		
 		else {
 			Tree1 existingTree = children.get(child.name);
-//			existingTree.addChild(child);
-			
 			existingTree.codes.addAll(child.codes);
 			
 			for(Tree1 childChild: child.children.values()) {
@@ -78,7 +84,7 @@ public class TreeSolution {
 	}
 	
 	private static Set<String> convertToSet(String str) {
-		// TODO Auto-generated method stub
+		
 		Set<String> code = new HashSet<> ();
 		String[] codes = str.split(",");
 		for(String s: codes) {
@@ -95,8 +101,8 @@ public class TreeSolution {
 		
 		while(!stackTree.isEmpty()) {
 			Tree1 popTree = stackTree.pop();
-			stackTab.pop();
 			if(!popTree.codes.isEmpty()) {
+				//stackTab.push(tab);
 				System.out.println(tab + popTree.name + "~" + popTree.codes);			
 			}
 			else {
@@ -104,7 +110,7 @@ public class TreeSolution {
 			}
 			
 			for(Tree1 childChild: popTree.children.values()) {
-				stackTree.push(childChild);		
+				stackTree.push(childChild);
 				tab += "\t";
 				
 			}
@@ -113,26 +119,25 @@ public class TreeSolution {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		Tree1 root = new Tree1();
 		
-		BufferedReader br = new BufferedReader(new FileReader("/home/faizansopariwala/Downloads/Problem_Input/8/InputFile"));
+		Tree1 root = new Tree1();
+		PrintStream ps=new PrintStream("F:\\Txt\\output");
+		BufferedReader br = new BufferedReader(new FileReader("E:\\Problem\\Problem_Input\\8\\InputFile"));
 		String str = "";
 		
 		while((str = br.readLine()) != null) {
-//			Tree1 tree = new Tree1();
 			String[] split1 = str.split("\\t");
 			Tree1 tree = getTreeFromLine(split1);
 			
-//			System.out.println(tree.name);
+			//System.out.println(tree.name);
 			root.addChild(tree);
 		}
 		
 		for(Tree1 childChild: root.children.values()) {
-//			childChild.printTree("");
+			//childChild.printTree("",ps);
 			printTree(childChild);
 		}
-		
+		br.close();
 		
 	}
 
