@@ -98,20 +98,22 @@ public class TreeSolution {
 		String tab = "";
 		Stack<String> stackTab=new Stack<>();
 		stackTree.push(tree);
-		
+		stackTab.push(tab);
 		while(!stackTree.isEmpty()) {
 			Tree1 popTree = stackTree.pop();
 			if(!popTree.codes.isEmpty()) {
-				//stackTab.push(tab);
+				tab=stackTab.pop();
 				System.out.println(tab + popTree.name + "~" + popTree.codes);			
 			}
 			else {
+				tab=stackTab.pop();
 				System.out.println(tab + popTree.name);
 			}
 			
 			for(Tree1 childChild: popTree.children.values()) {
 				stackTree.push(childChild);
 				tab += "\t";
+				stackTab.push(tab);
 				
 			}
 			
@@ -137,6 +139,7 @@ public class TreeSolution {
 			//childChild.printTree("",ps);
 			printTree(childChild);
 		}
+		
 		br.close();
 		
 	}
