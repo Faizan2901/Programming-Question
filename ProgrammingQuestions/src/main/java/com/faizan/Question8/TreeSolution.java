@@ -102,7 +102,8 @@ public class TreeSolution {
 		while(!stackTree.isEmpty()) {
 			Tree1 popTree = stackTree.pop();
 			if(!popTree.codes.isEmpty()) {
-				tab=stackTab.pop();
+				tab+="\t";
+				stackTab.push(tab);
 				System.out.println(tab + popTree.name + "~" + popTree.codes);			
 			}
 			else {
