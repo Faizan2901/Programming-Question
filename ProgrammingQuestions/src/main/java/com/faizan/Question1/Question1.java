@@ -9,6 +9,7 @@ public class Question1 {
 
 	static public void checkFile(File[] file,String str )
 	{
+		System.out.println("Faisu bhai");
 		
 			for(int j=0;j<file.length;j++)
 			{
